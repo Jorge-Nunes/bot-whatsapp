@@ -11,7 +11,7 @@ const SESSION_FILE_PATH = './session.json';
 
 let client;
 
-const spam = false;
+const spam = true;
 const checkToken = true;
 
 
