@@ -1,0 +1,7 @@
+<entry key='notificator.types'>web,sms</entry>
+<entry key='notificator.sms.manager.class'>org.traccar.sms.HttpSmsClient</entry>
+<entry key='sms.http.url'>http://192.168.15.3:8080/enviar?</entry>
+<entry key='sms.http.template'>
+{"destino": "{phone}","mensagem": "{message}", "token": "8s8d9s9fs9"}
+</entry>
+<entry key='status.timeout'>60</entry>
