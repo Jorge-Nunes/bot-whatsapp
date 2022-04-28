@@ -1,10 +1,10 @@
 #!/bin/bash
 ##################################################################
-###         SCRIP INSTALL BOT WHTATSAPP PARA TRACCAR           ###
+###         SCRIPT INSTALL BOT WHTATSAPP PARA TRACCAR          ###
 ###       UTILIZAR COM INSTALAÇÃO LIMPA DO UBUNTU 18.04        ###
 ###  SE SCRIPT LHE AJUDOU CONTRIBUA COM ESSE PEQUENO MORTAL    ### 
 ### ENVIE UMA OFERTA DE QUALQUER VALOR PARA O PIX 11999623179  ###
-###                    DEUS TE ABEÇOE                          ###
+###                    DEUS TE ABENÇOE                         ###
 ##################################################################
 
 
