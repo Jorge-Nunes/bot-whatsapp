@@ -1,0 +1,14 @@
+[Unit]
+Description=Bot WhatsApp API
+
+[Service]
+PIDFile=/tmp/botwhatsapp.pid
+User=root
+Group=root
+Restart=always
+KillSignal=SIGQUIT
+WorkingDirectory=/opt/bot-whatsapp/
+ExecStart=/root/.nvm/versions/node/v12.22.12/bin/node /opt/bot-whatsapp/simple.js
+
+[Install]
+WantedBy=multi-user.target
