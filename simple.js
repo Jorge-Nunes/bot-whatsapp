@@ -23,24 +23,24 @@ let sessionData;
 let sessao;
 let sessobj;
 
-if(fs.existsSync(SESSION_FILE_PATH)) {
+////if(fs.existsSync(SESSION_FILE_PATH)) {
     //sessionData = require(SESSION_FILE_PATH);
 
-    sessao = fs.readFileSync(SESSION_FILE_PATH);
-    sessobj = JSON.parse(sessao);
+    ////sessao = fs.readFileSync(SESSION_FILE_PATH);
+    ////sessobj = JSON.parse(sessao);
 
 
     //console.log(sessobj);
     //console.log(sessao.toString());
     //return;
 
-    client = new Client({
-      session: sessobj
-    });
+    ////client = new Client({
+      ////session: sessobj
+    ////});
 
-} else {
+////} else {
   client = new Client();
-}
+////}
 
 
 
