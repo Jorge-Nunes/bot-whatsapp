@@ -1,4 +1,4 @@
- const http = require("http");
+const http = require("http");
 const url = require('url');
 const fs = require('fs');
 
@@ -41,11 +41,6 @@ let sessobj;
 ////} else {
   client = new Client();
 ////}
-
-
-
-
-
 
 const QRCode = require('qrcode');
 
@@ -269,7 +264,7 @@ const server = http.createServer(function(req, res){
                     res.end(img, 'binary');
 
                 } else if (estado == 1){
-                    res.write("Já conectado");
+                    res.write("CONECTADO");
                 }
                 
                 break;
@@ -285,4 +280,4 @@ const server = http.createServer(function(req, res){
 });
 
 server.listen(8080);
-console.log('Interceptor WhatsApp Rodando na porta 8080');
+console.log('API WhatsApp Rodando na porta 8080');
