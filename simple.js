@@ -253,7 +253,17 @@ const server = http.createServer(function(req, res){
                     res.end(img, 'binary');
 
                 } else if (estado == 1){
-                    res.write("CONECTADO\n");
+                    res.write("CONECTADO\n
+                              Insira as linhas abaixo no seu traccar.xml\n
+                              
+<entry key='notificator.types'>web,sms</entry>\n
+<entry key='notificator.sms.manager.class'>org.traccar.sms.HttpSmsClient</entry>\n
+<entry key='sms.http.url'>http://192.168.15.3:8080/enviar?</entry>\n
+<entry key='sms.http.template'>\n
+{"destino": "{phone}","mensagem": "{message}", "token": "8s8d9s9fs9"}\n
+</entry>\n
+                              
+                              ");
                 }
                 
                 break;
