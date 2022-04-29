@@ -14,7 +14,6 @@ let client;
 const spam = true;
 const checkToken = true;
 
-
 const chatBot = true;
 const chatBotURL = "http://localhost/";
 
@@ -70,10 +69,7 @@ function redirectChatBot(timestamp, origem, mensagem){
 
 }
 
-
 function checaToken(__token){
-
-
   
     if (token.token == __token) {
       console.log(__token);
@@ -81,11 +77,8 @@ function checaToken(__token){
     } else {
       return false;
     }
-  
-
 
 }
-
 
 function checaAutorizados(__numero) {
 
@@ -101,14 +94,12 @@ function checaAutorizados(__numero) {
     return autorizados[0];
   }
 
-
 function autorizaNumero(__numero) {
     autorizados.push({ numero: __numero});
     let data = JSON.stringify(autorizados);
     fs.writeFileSync("./autorizados.json", data);
 
   }
-
 
   function persisteRecebidas() {
     let data = JSON.stringify(mensagens);
@@ -119,8 +110,6 @@ function autorizaNumero(__numero) {
   function mostraRecebidas() {
     return fs.readFileSync('./recebidas.json').toString();
   }
-
-
 
 mensagens = [
     { timestamp: "000000000000000", origem: "0000000000", mensagem: "-1" }
@@ -264,7 +253,7 @@ const server = http.createServer(function(req, res){
                     res.end(img, 'binary');
 
                 } else if (estado == 1){
-                    res.write("CONECTADO");
+                    res.write("CONECTADO\n");
                 }
                 
                 break;
