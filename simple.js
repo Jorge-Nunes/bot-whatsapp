@@ -1,18 +1,19 @@
 const http = require("http");
 const url = require('url');
 const fs = require('fs');
-
+const imageURL = './img.jpg';
 const request = require('request');
 
 const qrcode = require("qrcode-terminal");
-const { Client } = require('whatsapp-web.js');
+//const { Client, LegacySessionAuth } = require('whatsapp-web.js');
 
 const SESSION_FILE_PATH = './session.json';
 
-let client;
+//let client;
 
 const spam = true;
 const checkToken = true;
+
 
 const chatBot = true;
 const chatBotURL = "http://localhost/";
@@ -22,24 +23,11 @@ let sessionData;
 let sessao;
 let sessobj;
 
-////if(fs.existsSync(SESSION_FILE_PATH)) {
-    //sessionData = require(SESSION_FILE_PATH);
+const { Client, LocalAuth } = require('whatsapp-web.js');
 
-    ////sessao = fs.readFileSync(SESSION_FILE_PATH);
-    ////sessobj = JSON.parse(sessao);
-
-
-    //console.log(sessobj);
-    //console.log(sessao.toString());
-    //return;
-
-    ////client = new Client({
-      ////session: sessobj
-    ////});
-
-////} else {
-  client = new Client();
-////}
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
 
 const QRCode = require('qrcode');
 
@@ -69,7 +57,10 @@ function redirectChatBot(timestamp, origem, mensagem){
 
 }
 
+
 function checaToken(__token){
+
+
   
     if (token.token == __token) {
       console.log(__token);
@@ -77,8 +68,11 @@ function checaToken(__token){
     } else {
       return false;
     }
+  
+
 
 }
+
 
 function checaAutorizados(__numero) {
 
@@ -94,12 +88,14 @@ function checaAutorizados(__numero) {
     return autorizados[0];
   }
 
+
 function autorizaNumero(__numero) {
     autorizados.push({ numero: __numero});
     let data = JSON.stringify(autorizados);
     fs.writeFileSync("./autorizados.json", data);
 
   }
+
 
   function persisteRecebidas() {
     let data = JSON.stringify(mensagens);
@@ -110,6 +106,8 @@ function autorizaNumero(__numero) {
   function mostraRecebidas() {
     return fs.readFileSync('./recebidas.json').toString();
   }
+
+
 
 mensagens = [
     { timestamp: "000000000000000", origem: "0000000000", mensagem: "-1" }
@@ -253,7 +251,36 @@ const server = http.createServer(function(req, res){
                     res.end(img, 'binary');
 
                 } else if (estado == 1){
-                    res.write("***********CONECTADO***********");
+                    
+		    //res.write("<img src='" + fileUrl+ "'/>");
+		res.write(`
+      
+			<!doctype html>
+			<html>
+			<head>
+			  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+			</head>
+			<body style="font-family: sans-serif; ">
+			  <div style="height: 500px;">
+			    <button onclick="fireSweetAlert()">Clique para ver o status da API</button>
+			  </div>
+			  <script>
+
+		    function fireSweetAlert() {
+		        Swal.fire(
+            			'Good job!',
+		                'API WhatsApp Running!',
+			        'success'
+        )
+    }
+
+  </script>
+</body>
+</html>
+			
+			
+			
+			`);
                 }
                 
                 break;
@@ -269,4 +296,4 @@ const server = http.createServer(function(req, res){
 });
 
 server.listen(8080);
-console.log('API WhatsApp Rodando na porta 8080');
+console.log('API WhatsApp Running port 8080');
