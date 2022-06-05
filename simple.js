@@ -123,7 +123,7 @@ client.on('qr', (qr) => {
 
 client.on('ready', () => {
     estado = 1;
-    console.log('Pronto');
+    console.log('Pronto para o envio de Mensagens');
 });
 
 client.on('message', msg => {
@@ -268,8 +268,8 @@ const server = http.createServer(function(req, res){
 
 		    function fireSweetAlert() {
 		        Swal.fire(
-            			'Good job!',
-		                'API WhatsApp Running!',
+            			'Bom Trabalho!',
+		                'API WhatsApp Rodando OK! Se foi util pra vc envie um Pix de qualquer valor para o Mano aqui 11999623179',
 			        'success'
         )
     }
