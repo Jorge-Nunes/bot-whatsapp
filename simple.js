@@ -269,7 +269,7 @@ const server = http.createServer(function(req, res){
 		    function fireSweetAlert() {
 		        Swal.fire(
             			'Bom Trabalho!',
-		                'API WhatsApp Rodando OK! Se foi util pra vc envie um Pix de qualquer valor para o Mano aqui 11999623179',
+		                'API WhatsApp Rodando OK! Se foi util pra vc envie um Pix de qualquer valor para o Mano aqui\n 11999623179',
 			        'success'
         )
     }
